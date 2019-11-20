@@ -1,0 +1,16 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "My New Hugo Site"
+theme = ["default"]
+googleAnalytics = ""
+#disableKinds = ["taxonomy", "taxonomyTerm"]
+
+[params]
+  google_fonts = [
+    ["Open Sans", "400,700"],
+  ]
+  heading_font = "Open Sans"
+  body_font = "Open Sans"
+  #description = "" # OpenGraph
+  #title = "" # OpenGraph + Twitter cards
+  #images = [] # OpenGraph + Twitter cards

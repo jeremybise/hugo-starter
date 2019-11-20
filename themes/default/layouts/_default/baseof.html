@@ -1,0 +1,30 @@
+<!doctype html>
+
+<html lang="{{ $.Site.Language.Lang }}">
+  <head>
+    {{ partial "head" . }}
+
+    <title>{{ if .Title }} {{ .Title }} | {{ end }}{{ $.Site.Title }}</title>
+
+    {{ block "header_scripts" . }}{{ end}}
+  </head>
+  <body>
+    {{ partial "header" . }}
+
+    <div id="content" class="site-content">
+      {{ block "main" . }}{{ end }}
+    </div>
+
+    {{ partial "footer" . }}
+
+    {{ partial "google-fonts" . }}
+
+    {{ block "footer_scripts" . }}{{ end }}
+
+    {{ $main := resources.Get "js/main.js" }}
+    {{ $js := slice $main | resources.Concat "js/main.js" }}
+    <script src="{{ $js.RelPermalink }}"></script>
+
+    {{ template "_internal/google_analytics_async.html" . }}
+  </body>
+</html>

@@ -1,0 +1,6 @@
+$body_font: {{ $.Site.Params.body_font | default "sans-serif" }};
+$heading_font: {{ $.Site.Params.heading_font | default "sans-serif" }};
+
+@import "normalize";
+@import "vars";
+@import "type";
