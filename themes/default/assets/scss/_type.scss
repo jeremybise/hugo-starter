@@ -1,5 +1,6 @@
 body {
   font-family: $body_font;
+  color: $gray900;
 }
 
 h1,
@@ -9,4 +10,11 @@ h4,
 h5,
 h6 {
   font-family: $heading_font;
+  @include leading-normal();
+}
+
+p,
+ul,
+ol {
+  @include leading-normal();
 }

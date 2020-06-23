@@ -7,7 +7,8 @@ googleAnalytics = ""
 
 [params]
   google_fonts = [
-    ["Open Sans", "400,700"],
+    ["Open Sans", "400;700"],
+    ["Lato", "400"]
   ]
   heading_font = "Open Sans"
   body_font = "Open Sans"

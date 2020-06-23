@@ -4,3 +4,5 @@ $heading_font: {{ $.Site.Params.heading_font | default "sans-serif" }};
 @import "normalize";
 @import "vars";
 @import "type";
+@import "header";
+@import "footer";

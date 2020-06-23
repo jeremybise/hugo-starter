@@ -1,25 +1,14 @@
 {{ if .Site.Params.google_fonts }}
   {{ $fonts := slice }}
-  {{ $families := slice }}
-  <script>
-    const fonts = [];
-  </script>
   {{ range .Site.Params.google_fonts }}
-    {{ $family :=  (index (.)  0) }}
+    {{ $family := replace (index (.)  0) " " "+" }}
     {{ $weights := replace (index (.) 1) " " "" }}
-    {{ $string := print $family ":" $weights }}
+    {{ $string := print $family ":wght@" $weights }}
     {{ $fonts = $fonts | append $string }}
-    <script>
-      fonts.push({{ $string }});
-    </script>
   {{ end }}
-
-  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
-  <script>
-    WebFont.load({
-      google: {
-        families: fonts
-      }
-    });
-  </script>
+  {{ $url_part := (delimit $fonts "&family=") | safeHTMLAttr }}
+  <link {{ printf "href=\"//fonts.googleapis.com/css2?family=%s\"" $url_part | safeHTMLAttr }} rel="stylesheet">
+{{ else}}
+  <!-- specify a default in case custom config not present -->
+  <link href="//fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
 {{ end }}
